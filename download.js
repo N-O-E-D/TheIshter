@@ -19,12 +19,13 @@ window.onload=function() {
     var links=document.getElementsByTagName('a');
     for(let item of links) {
         if(item.href.toString().includes("drive.google.com") && !item.href.toString().includes("&export=download")){
-            if(item.href.toString().includes("open")){
+            if(item.href.toString().includes("open")){   //handling "https://drive.google.com/open?id=0B0-eCyPM-uAlTzNsYVNVZTY2Z3M" link type
                 id=(item.href.toString().split("/")[3]).replace("open?id=","");
              }
-             else if(item.href.toString().includes("file")){
+             else if(item.href.toString().includes("file")){   //handling "https://drive.google.com/file/d/0B0-eCyPM-uAlTTBpemFnUE1zRnc/view" link type
                  id=(item.href.toString().split("/")[5]);
              }
+            /*  */ // other link types handles
             count++;
             dwnld=downloadprefix+id+"&export=download";
             string="<a class='_randomClass_name' href='"+dwnld+"'>   <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQe0yTrscxvCtQSSYecldTwJhb446m5cG2BGRy4gsa2AEKBJWQR' width='30'></img></a>";
